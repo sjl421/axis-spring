@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.axis.ws.core.mapper.CityMapper">
+
+    <resultMap id="baseCityMap" type="com.axis.ws.core.model.City">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="state" column="state"/>
+    </resultMap>
+
+    <select id="select" resultMap="baseCityMap">
+        SELECT
+          *
+        FROM
+          city
+    </select>
+
+</mapper>

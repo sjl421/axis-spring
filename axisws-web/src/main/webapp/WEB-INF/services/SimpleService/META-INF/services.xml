@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<serviceGroup>
+	<service name="SimpleService">
+		<description>
+	        simple spring example
+	    </description>
+	    <parameter name="ServiceObjectSupplier" locked="false">org.apache.axis2.extensions.spring.receivers.SpringServletContextObjectSupplier</parameter>
+	    <!-- spring bean 名称 -->
+	    <parameter name="SpringBeanName">simpleServiceImpl</parameter>
+	    <!-- 声明要暴露的接口 -->
+		<operation name="helloService">
+			<!-- 声明消息处理器 -->
+	        <messageReceiver class="org.apache.axis2.rpc.receivers.RPCMessageReceiver"/>
+	    </operation>
+	    <operation name="getCity">
+	        <messageReceiver class="org.apache.axis2.rpc.receivers.RPCMessageReceiver"/>
+	    </operation>
+		<messageReceivers>
+			<!-- 无返回值 -->
+	        <messageReceiver mep= "http://www.w3.org/2004/08/wsdl/in-only"
+	        	class = "org.apache.axis2.rpc.receivers.RPCInOnlyMessageReceiver"  />
+	        <!-- 有返回值 -->
+	        <messageReceiver mep= "http://www.w3.org/2004/08/wsdl/in-out"
+	            class = "org.apache.axis2.rpc.receivers.RPCMessageReceiver"  />
+	    </messageReceivers>
+	</service>
+</serviceGroup>
